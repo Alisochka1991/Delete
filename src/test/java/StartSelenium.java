@@ -14,7 +14,7 @@ public class StartSelenium {
     {
         wd=new ChromeDriver();
        // wd.get("https://contacts-app.tobbymarshall815.vercel.app/login");//open site
-        System.setProperty("webdriver.crome.driver",)
+        System.setProperty("webdriver.crome.driver","D:/QA30/Delete/chromedriver.exe");
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/login");//open site and remember story
        // wd.navigate().forward();
         //open site
