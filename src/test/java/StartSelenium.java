@@ -32,15 +32,28 @@ public class StartSelenium {
         System.out.println(elements.size());
 
         wd.findElement(By.className("container"));
+        wd.findElement(By.cssSelector(".container"));//tochka oznachaet klass
+
         wd.findElement(By.className("navbar-component_nav__1X_4m"));
         wd.findElement(By.className("login_login__3EHKB"));
 
                 wd.findElement(By.id("root"));
+                wd.findElement(By.cssSelector("#root"));//reshetka oznzchaet id
+
+        wd.findElement(By.cssSelector("[href='/login']"));
+        wd.findElement(By.cssSelector("[href]"));
+        wd.findElement(By.cssSelector("[href^='/lo']"));//start
+        wd.findElement(By.cssSelector("[href$='/in']"));//zakanchivaetsa
+        wd.findElement(By.cssSelector("[href*='/ogi']"));//soderzit
 
                 wd.findElement(By.tagName("a"));
         wd.findElement(By.tagName("input"));
         wd.findElement(By.tagName("button"));
         wd.findElement(By.tagName("h"));
+
+        wd.findElement(By.cssSelector("a"));
+
+        wd.findElement(By.cssSelector("div"));
 
                 wd.findElement(By.linkText("HOME"));
         wd.findElement(By.linkText("ABOUT"));
