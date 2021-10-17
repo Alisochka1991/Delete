@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.sql.ClientInfoStatus;
 import java.util.List;
 
 public class Table_test {
@@ -38,6 +39,11 @@ public class Table_test {
         System.out.println(text);
         Assert.assertTrue(text.contains("Francisco Chang"));
         Assert.assertFalse(text.contains("Francisso Chang"));
+        String text2 = wd.findElement(By.cssSelector("tr:nth-child(4) td:nth-child(2)")).getText();
+        Assert.assertEquals(text2,"Francisco Chang");
+
+        //ili odnoi strokoi
+        Assert.assertEquals(wd.findElement(By.cssSelector("tr:nth-child(4) td:nth-child(2)")).getText(),"Francisco Chang");
 
         wd.findElement(By.cssSelector("#navbtn_references"));
         wd.findElement(By.cssSelector(".color_h1"));
@@ -57,29 +63,42 @@ public class Table_test {
 
 
         WebElement ernst = wd.findElement(By.cssSelector("tr:nth-child(5) td:first-child"));
-        String text2 = ernst.getText();
-        Assert.assertTrue(text2.contains("Ernst Handel"));
+        String text3 = ernst.getText();
+        Assert.assertTrue(text3.contains("Ernst Handel"));
 
     }
     @Test
     public void tableHw2()
     {
-        WebElement element = wd.findElement(By.tagName("th"));
         List<WebElement> elements = wd.findElements(By.cssSelector("th"));
-        for(int i=0;i<elements.size();i++)
-        {
-            System.out.println(elements.size());
+        System.out.println(elements.size());
+
+        List<WebElement> rows = wd.findElements(By.cssSelector("tr"));
+        System.out.println(rows.size());
+
+        List<WebElement> columns = wd.findElements(By.cssSelector("tr th"));
+        System.out.println("Print columns numbers of last column---->");
+        System.out.println(columns.size());
+
+        List<WebElement> row3 = wd.findElements(By.cssSelector("tr:nth-child(3) td"));
+        System.out.printf("Row 3---->"+row3.size());//raspechatat vsy 3 kolonky
+
+        for (WebElement el:row3) {
+            System.out.printf(el.getText());
         }
-        System.out.println("     ");
-
-        WebElement element1 = wd.findElement(By.tagName("tr"));
-        List<WebElement> elements1 = wd.findElements(By.cssSelector("tr"));
-        for(int i=0;i<elements.size();i++)
-        {
-            System.out.println(elements1.size());
+        for (int i = 0; i < row3.size(); i++) {
+            System.out.println(row3.get(i).getText());
         }
 
+        //print last column
+        List<WebElement> lastColumn = wd.findElements(By.cssSelector("tr td:last-child"));
+        for (WebElement el:lastColumn) {
+            System.out.println(el.getText());
 
+        }
+
+//print Maria
+        System.out.println(wd.findElement(By.cssSelector("tr:nth-child(2) td:nth-child(2)")).getText());
     }
 
     @AfterMethod
