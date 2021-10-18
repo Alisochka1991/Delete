@@ -28,23 +28,33 @@ public class StartSelenium {
     public void testName()
     {
         WebElement element = wd.findElement(By.tagName("a"));
+        wd.findElement(By.xpath("//a"));
+        wd.findElement(By.xpath("//div"));
         List<WebElement> elements = wd.findElements(By.tagName("a"));
         System.out.println(elements.size());
 
+
         wd.findElement(By.className("container"));
         wd.findElement(By.cssSelector(".container"));//tochka oznachaet klass
+        wd.findElement(By.xpath("//*[@class='container']"));
+
 
         wd.findElement(By.className("navbar-component_nav__1X_4m"));
+        wd.findElement(By.xpath("//*[@class='navbar-component_nav__1X_4m']"));
         wd.findElement(By.className("login_login__3EHKB"));
 
                 wd.findElement(By.id("root"));
+                wd.findElement(By.xpath("//*[@id='root']"));
                 wd.findElement(By.cssSelector("#root"));//reshetka oznzchaet id
 
         wd.findElement(By.cssSelector("[href='/login']"));
+        wd.findElement(By.xpath("//*[@href='/login']"));
         wd.findElement(By.cssSelector("[href]"));
         wd.findElement(By.cssSelector("[href^='/lo']"));//start
-        wd.findElement(By.cssSelector("[href$='/in']"));//zakanchivaetsa
+        wd.findElement(By.xpath("//*[starts-with(@href,'/lo')]"));
+        wd.findElement(By.cssSelector("[href$='in']"));//zakanchivaetsa
         wd.findElement(By.cssSelector("[href*='/ogi']"));//soderzit
+        wd.findElement(By.xpath("//*[contains(@href,'/lo']"));
 
                 wd.findElement(By.tagName("a"));
         wd.findElement(By.tagName("input"));
