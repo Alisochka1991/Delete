@@ -81,6 +81,7 @@ public class Table_test {
         System.out.println(columns.size());
 
         List<WebElement> row3 = wd.findElements(By.cssSelector("tr:nth-child(3) td"));
+        wd.findElement(By.xpath("//tr[3]/td"));
         System.out.printf("Row 3---->"+row3.size());//raspechatat vsy 3 kolonky
 
         for (WebElement el:row3) {
